@@ -15,6 +15,7 @@ Version:	3.34.5
 Release:	1
 Source0:	http://download.gnome.org/sources/gnome-bluetooth/%{url_ver}/gnome-bluetooth-%{version}.tar.xz
 Source1:	61-gnome-bluetooth-rfkill.rules
+Patch0:		755fd758f866d3a3f7ca482942beee749f13a91e.patch
 URL:		http://usefulinc.com/software/gnome-bluetooth/
 #gw lib is LGPL, main app is GPL
 License:	GPLv2+ and LGPLv2+
@@ -76,6 +77,7 @@ Development files and header files from %{name}.
 
 %prep
 %setup -q -n gnome-bluetooth-%{version}
+%autopatch -p1
 
 %build
 %meson          \
