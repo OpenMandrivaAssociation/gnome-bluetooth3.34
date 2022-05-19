@@ -8,6 +8,7 @@
 %define url_ver	%(echo %{version}|cut -d. -f1,2)
 %define _disable_ld_no_undefined 1
 %define _disable_rebuild_configure 1
+%define oname gnome-bluetooth
 
 Name: 	 	gnome-bluetooth3.34
 Summary: 	GNOME Bluetooth Subsystem
@@ -101,7 +102,7 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 %{_udevrulesdir}/61-gnome-bluetooth-rfkill.rules
 %{_bindir}/*
 %{_datadir}/applications/bluetooth-sendto.desktop
-%{_datadir}/%{name}
+%{_datadir}/%{oname}
 %{_mandir}/man1/*
 %{_datadir}/icons/hicolor/*/*/*.*
 
@@ -113,7 +114,7 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 
 %files -n %{develname}
 #doc %{_datadir}/gtk-doc/html/%{name}
-%{_includedir}/%{name}
-%{_libdir}/lib%{name}.so
+%{_includedir}/%{oname}
+%{_libdir}/lib%{oname}.so
 %{_datadir}/gir-1.0/GnomeBluetooth-%{gi_major}.gir
 %{_libdir}/pkgconfig/*.pc
