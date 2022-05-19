@@ -107,7 +107,7 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 %{_datadir}/icons/hicolor/*/*/*.*
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{major}*
+#{_libdir}/lib%{name}.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/GnomeBluetooth-%{gi_major}.typelib
