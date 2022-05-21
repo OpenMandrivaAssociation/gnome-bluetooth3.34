@@ -13,7 +13,7 @@
 Name: 	 	gnome-bluetooth3.34
 Summary: 	GNOME Bluetooth Subsystem
 Version:	3.34.5
-Release:	2
+Release:	3
 Source0:	http://download.gnome.org/sources/gnome-bluetooth/%{url_ver}/gnome-bluetooth-%{version}.tar.xz
 Source1:	61-gnome-bluetooth-rfkill.rules
 Patch0:		755fd758f866d3a3f7ca482942beee749f13a91e.patch
@@ -89,6 +89,11 @@ Development files and header files from %{name}.
 %install
 %meson_install
 
+# Remove files that conflicting with gnome-bluetooth current
+rm $RPM_BUILD_ROOT/%{_bindir}/bluetooth-sendto \
+  $RPM_BUILD_ROOT/%{_datadir}/applications/bluetooth-sendto.desktop \
+  $RPM_BUILD_ROOT/%{_mandir}/man1/bluetooth-sendto.1*
+
 mkdir -p %{buildroot}%{_udevrulesdir}
 install %{SOURCE1} %{buildroot}%{_udevrulesdir}/
 
@@ -100,10 +105,9 @@ find %{buildroot} -name "*.la" -exec rm -rf {} \;
 %files -f %{name}2.lang
 %doc README.md AUTHORS
 %{_udevrulesdir}/61-gnome-bluetooth-rfkill.rules
-%{_bindir}/*
-%exclude %{_datadir}/applications/bluetooth-sendto.desktop
+#{_bindir}/*
 %{_datadir}/%{oname}
-%{_mandir}/man1/*
+#{_mandir}/man1/*
 %{_datadir}/icons/hicolor/*/*/*.*
 
 %files -n %{libname}
