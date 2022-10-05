@@ -13,7 +13,7 @@
 Name: 	 	gnome-bluetooth3.34
 Summary: 	GNOME Bluetooth Subsystem
 Version:	3.34.5
-Release:	6
+Release:	7
 Source0:	http://download.gnome.org/sources/gnome-bluetooth/%{url_ver}/gnome-bluetooth-%{version}.tar.xz
 Source1:	61-gnome-bluetooth-rfkill.rules
 Patch0:		755fd758f866d3a3f7ca482942beee749f13a91e.patch
